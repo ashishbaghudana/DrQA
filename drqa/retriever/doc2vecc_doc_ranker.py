@@ -59,7 +59,7 @@ class Doc2VecCDocRanker(object):
         """
         spvec = self.text2vec(query)
         dist_2 = np.sum((self.documents - spvec)**2, axis=1)
-        doc_ids = [np.argmin(dist_2) + 1]
+        doc_ids = [self.get_doc_id(np.argmin(dist_2) + 1)]
         doc_scores = [dist_2[doc_ids[0]]]
         return doc_ids, doc_scores
 
