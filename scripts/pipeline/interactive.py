@@ -65,7 +65,7 @@ DrQA = pipeline.DrQA(
     cuda=args.cuda,
     fixed_candidates=candidates,
     reader_model=args.reader_model,
-    ranker_config={'options': {'tfidf_path': args.retriever_model}},
+    ranker_config={},
     db_config={'options': {'db_path': args.doc_db}},
     tokenizer=args.tokenizer
 )
@@ -76,7 +76,7 @@ DrQA = pipeline.DrQA(
 # ------------------------------------------------------------------------------
 
 
-def process(question, candidates=None, top_n=1, n_docs=5):
+def process(question, candidates=None, top_n=1, n_docs=1):
     predictions = DrQA.process(
         question, candidates, top_n, n_docs, return_context=True
     )
