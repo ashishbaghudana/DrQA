@@ -59,8 +59,9 @@ class Doc2VecCDocRanker(object):
         """
         spvec = self.text2vec(query)
         dist_2 = np.sum((self.documents - spvec)**2, axis=1)
-        doc_ids = [self.get_doc_id(np.argmin(dist_2) + 1)]
-        doc_scores = [dist_2[doc_ids[0]]]
+        doc_id = np.argmin(dist_2) + 1
+        doc_ids = [self.get_doc_id(doc_id)]
+        doc_scores = [dist_2[doc_id]]
         return doc_ids, doc_scores
 
     def batch_closest_docs(self, queries, k=1, num_workers=None):
