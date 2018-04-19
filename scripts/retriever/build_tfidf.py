@@ -12,6 +12,7 @@ import argparse
 import os
 import math
 import logging
+import pdb
 
 from multiprocessing import Pool as ProcessPool
 from multiprocessing.util import Finalize
@@ -66,6 +67,7 @@ def count(ngram, hash_size, doc_id):
     global DOC2IDX
     row, col, data = [], [], []
     # Tokenize
+    text = fetch_text(doc_id)
     tokens = tokenize(retriever.utils.normalize(fetch_text(doc_id)))
 
     # Get ngrams from tokens, with stopword/punctuation filtering.

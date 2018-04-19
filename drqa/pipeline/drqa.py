@@ -185,7 +185,7 @@ class DrQA(object):
         )
         return predictions[0]
 
-    def process_batch(self, queries, candidates=None, top_n=1, n_docs=5,
+    def process_batch(self, queries, candidates=None, top_n=1, n_docs=1,
                       return_context=False):
         """Run a batch of queries (more efficient)."""
         t0 = time.time()

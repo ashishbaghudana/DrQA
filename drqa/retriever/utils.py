@@ -37,6 +37,42 @@ def load_sparse_csr(filename):
 
 
 # ------------------------------------------------------------------------------
+# Dense matrix (word and document vectors) saving/loading helpers.
+# ------------------------------------------------------------------------------
+
+
+def load_document_vectors(filename):
+    docvectors = []
+    with open(filename) as freader:
+        next(freader)
+        for line in freader:
+            vector = [float(x) for x in line.split()]
+            docvectors.append(vector)
+    return np.array(docvectors)
+
+
+def load_word_vectors(filename):
+    vocabulary = {}
+    with open(filename) as freader:
+        next(freader)
+        for line in freader:
+            word = line.split()[0]
+            vector = np.array([float(token) for token in line.split()[1:]], dtype=np.float32)
+            vocabulary[word] = vector
+    return vocabulary
+
+
+def load_document_ids(filename):
+    id2index = {}
+    index2id = {}
+    with open(filename) as freader:
+        for i, line in enumerate(freader):
+            index2id[i+1] = line.strip()
+            id2index[line.strip()] = i+1
+    return id2index, index2id
+
+
+# ------------------------------------------------------------------------------
 # Token hashing.
 # ------------------------------------------------------------------------------
 
