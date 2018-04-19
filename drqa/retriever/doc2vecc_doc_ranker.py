@@ -80,7 +80,7 @@ class Doc2VecCDocRanker(object):
 
     def text2vec(self, query):
         """Create a vector representation of the query using word vectors"""
-        words = self.parse(utils.normalize(query))
+        words = utils.normalize(query)
         tokens = self.tokenizer.tokenize(words).words(uncased=True)
         vector = np.zeros((300,))
         count = 0

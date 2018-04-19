@@ -191,6 +191,8 @@ class DrQA(object):
         t0 = time.time()
         logger.info('Processing %d queries...' % len(queries))
         logger.info('Retrieving top %d docs...' % n_docs)
+        import pdb
+        pdb.set_trace()
 
         # Rank documents for queries.
         if len(queries) == 1:

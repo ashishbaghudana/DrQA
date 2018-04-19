@@ -9,14 +9,14 @@ import os
 from .. import DATA_DIR
 
 DEFAULTS = {
-    'db_path': os.path.join(DATA_DIR, 'medline/docs.db'),
+    'db_path': os.path.join('/home/ashish/ashish/DrQA/data', 'medline/docs.db'),
     'tfidf_path': os.path.join(
-        DATA_DIR,
+        '/home/ashish/ashish/DrQA/data',
         'wikipedia/docs-tfidf-ngram=2-hash=16777216-tokenizer=simple.npz'
     ),
-    'doc_vectors': os.path.join(DATA_DIR, 'medline/docvectors.txt'),
-    'word_vectors': os.path.join(DATA_DIR, 'medline/wordvectors.txt'),
-    'document_ids': os.path.join(DATA_DIR, 'medline/document_ids.txt'),
+    'doc_vectors': os.path.join('/home/ashish/ashish/DrQA/data', 'medline/docvectors.txt'),
+    'word_vectors': os.path.join('/home/ashish/ashish/DrQA/data', 'medline/wordvectors.txt'),
+    'document_ids': os.path.join('/home/ashish/ashish/DrQA/data', 'medline/document_ids.txt'),
 }
 
 
